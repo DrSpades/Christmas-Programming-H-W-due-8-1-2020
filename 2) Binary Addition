@@ -1,0 +1,46 @@
+num1 = input("Enter binary number: ")
+num2 = input("Enter binary number: ")
+
+while len(num1) > len(num2):
+  new = "0" + num2
+  num2 = new
+
+while len(num2) > len(num1):
+  new = "0" + num1
+  num1 = new
+
+arr1 = []
+arr2 = []
+total = []
+carry = []
+for i in num1:
+  arr1.append(int(i))
+for i in num2:
+  arr2.append(int(i))
+for i in range(len(num1)):
+  total.append(0)
+  carry.append(0)
+
+arr1.reverse()
+arr2.reverse()
+
+print(arr1)
+print(arr2)
+
+
+for i in range(len(arr1)):
+  total[i] = arr1[i] + arr2[i] + carry[i]
+  if total[i] > 1:
+    total[i] -= 2
+    try:
+      carry[i+1] = 1
+    except IndexError:
+      carry.append(1)
+      total.append(0)
+if len(carry) > len(arr1):
+  total[len(arr1)] = carry[len(arr1)]
+
+total.reverse()
+print("The sum is: ", end = "")
+for i in total:
+  print(str(i), end= "")
