@@ -1,0 +1,14 @@
+binary_number = input("Enter binary number: ")
+check_digit = int(binary_number[len(binary_number)-1])
+count = 0
+for i in binary_number:
+  if i == "1":
+    count += 1
+
+
+if check_digit == 1:
+  count -= 1
+if count % 2 == check_digit:  #when check_digit == 1, count must be odd
+  print("Success")
+else:
+  print("Failure")
