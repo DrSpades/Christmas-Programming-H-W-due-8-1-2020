@@ -1,0 +1,9 @@
+valid = False
+num = 20
+while valid == False:
+  if num % 12 == 0 and num % 11 == 0 and num % 13 == 0 and num % 14 == 0 and num % 15 == 0 and num % 16 == 0 and num % 17 == 0 and num % 18 == 0 and num % 19 == 0:
+    valid = True
+  else:
+    num += 20
+
+print(num)
