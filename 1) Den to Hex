@@ -1,0 +1,30 @@
+den_to_hex = {10: "A", 11: "B", 12: "C", 13: "D", 14: "E", 15: "F"}
+
+def calculate(number):
+  remainder = number % 16
+  multiple = number // 16
+  return remainder, multiple
+
+number = int(input("Enter number: "))
+final = []
+results = calculate(number)
+if results[1] > 15:
+  while results[1] > 15:
+    print(results)
+    final.append(results[0])
+    results = calculate(results[1])
+  final.append(results[0])
+  final.append(results[1])
+  print(final)
+else:
+  final = results
+  print(final)
+
+output = ""
+for i in range(len(final) -1 , -1,-1):
+  if final[i] > 9:
+    output += den_to_hex[final[i]]
+  else:
+    output += str(final[i])
+
+print("HEX: ", output)
